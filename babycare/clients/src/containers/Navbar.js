@@ -28,7 +28,7 @@ class Navbar extends Component {
     							</div>
     						</div>
     						<div className="header-column">
-    							<div className="header-row">
+    							<div className="header-row" >
     								<div className="header-nav header-nav-stripe">
     									<button className="btn header-btn-collapse-nav"
     										data-toggle="collapse" data-target=".header-nav-main">
@@ -41,7 +41,7 @@ class Navbar extends Component {
                           <div>
 
     										<nav>
-    											<ul className="nav nav-pills" id="mainNav">
+    											<ul className="nav nav-pills" id="mainNav" >
     												<li className="active">  <Link  to="/"> Home </Link></li>
     												<li className="dropdown"> <a className="dropdown-toggle" href="/"
     													 > Vaccine </a>
@@ -51,7 +51,7 @@ class Navbar extends Component {
 
     													</ul></li>
 
-                            <li> <a  href="#modules"> Services </a></li>
+                            <li> <Link  to="/#modules"> Services </Link></li>
 
 
     												<li>  <Link  to="/ContactMain"> Contact </Link></li>
@@ -64,8 +64,12 @@ class Navbar extends Component {
 
                                   ) : (
 
-                                      <li><Link to="/signin">Login</Link>
-                                      <Link to="/signup">Register</Link></li>
+
+                                        <li><Link to="/signup">Login/Register</Link></li>
+
+
+
+
 
 
                                   )}
