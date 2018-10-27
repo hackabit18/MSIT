@@ -7,6 +7,8 @@ import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
 // import withAuth from "../hocs/withAuth";
 import FaqMain from "../components/FaqMain";
+import Map from "../components/Map";
+import Articles from "../components/Articles";
 import FactMain from "../components/FactMain";
 import ContactMain from "../components/ContactMain";
 import Schedule from "../components/Schedule";
@@ -56,6 +58,8 @@ const Main = props => {
             );
           }} />
           <Route exact path='/ContactMain' component={ContactMain}/>
+          <Route exact path='/Map' component={Map}/>
+          <Route exact path='/Articles' component={Articles}/>
 
 
           <Route exact path='/FaqMain' component={FaqMain}/>

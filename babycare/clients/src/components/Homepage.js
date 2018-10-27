@@ -112,7 +112,7 @@ class Homepage extends Component {
     												</span>
     											</span>
     										</span>
-    											<p className="mb-none pb-none">Locate</p>
+    											<p className="mb-none pb-none"><Link to="/Map">Locate</Link></p>
     									</a></li>
     									<li><a href="#tabsNavigationSimpleIcons5"
     										data-toggle="tab"> <span
@@ -128,7 +128,7 @@ class Homepage extends Component {
     												</span>
     											</span>
     										</span>
-    											<p className="mb-none pb-none">News</p>
+    											<p className="mb-none pb-none"><Link to="/Articles">News</Link></p>
     									</a></li>
     									<li><a href="#tabsNavigationSimpleIcons6"
     										data-toggle="tab"> <span
@@ -419,7 +419,7 @@ class Homepage extends Component {
     												<img src="img/team/upendra.jpg"
     													className="img-responsive img-circle" alt=""/>
     												<p>
-    													<strong>Upendra Sharma</strong><span><a href="https://www.linkedin.com/in/upendra-sharma-20106815a/">Portfolio</a></span>
+    													<strong>Upendra Sharma</strong><a href="https://www.linkedin.com/in/upendra-sharma-20106815a/">Portfolio</a>
     												</p>
     											</div>
     										</div>
@@ -430,14 +430,13 @@ class Homepage extends Component {
     											data-appear-animation="fadeInUp"
     											data-appear-animation-delay="600">
     											<blockquote>
-
     											</blockquote>
     											<div className="testimonial-arrow-down"></div>
     											<div className="testimonial-author">
     												<img src="img/team/jatin.jpg"
     													className="img-responsive img-circle" alt=""/>
     												<p>
-    													<strong>Jatin Sharma</strong><span><a href="https://cv-jatinsharma.appspot.com/">Portfolio</a></span>
+    													<strong>Jatin Sharma</strong><a href="https://cv-jatinsharma.appspot.com/">Portfolio</a>
     												</p>
     											</div>
     										</div>
@@ -456,12 +455,11 @@ class Homepage extends Component {
     												<img src="img/team/ankush.jpeg"
     													className="img-responsive img-circle" alt=""/>
     												<p>
-    													<strong>Ankush Shukla</strong><span><a href="https://www.linkedin.com/in/ankush-shukla-85370615b/">Portfolio</a></span>
+    													<strong>Ankush Shukla</strong><a href="https://www.linkedin.com/in/ankush-shukla-85370615b/">Portfolio</a>
     												</p>
     											</div>
     										</div>
     									</div>
-
                       <div className="col-md-3">
     										<div className="testimonial testimonial-style-2 appear-animation"
     											data-appear-animation="fadeInLeft"
@@ -474,11 +472,12 @@ class Homepage extends Component {
     												<img src="img/team/ashu.jpeg"
     													className="img-responsive img-circle" alt=""/>
     												<p>
-    													<strong>Ashutosh Senger</strong><span><a href="https://www.linkedin.com/in/ashutosh-senger-11041a149">Portfolio</a></span>
+    													<strong>Ashutosh Senger</strong><a href="https://www.linkedin.com/in/ashutosh-senger-11041a149/">Portfolio</a>
     												</p>
     											</div>
     										</div>
     									</div>
+
 
 
 

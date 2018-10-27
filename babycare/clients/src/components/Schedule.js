@@ -1,36 +1,59 @@
 import {DateTimeFormatter} from 'js-joda';
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 const LocalDate =require('js-joda').LocalDate;
-var d =LocalDate.parse('2012-12-24').atStartOfDay().plusMonths(2).format(DateTimeFormatter.ofPattern('d MM yyyy'));
+
+
+
+var d = LocalDate.parse('2012-12-24').plusMonths(2).format(DateTimeFormatter.ofPattern('d MM yyyy'));
 console.log(d);
+
+
 
 export default class Schedule extends Component {
     constructor(props){
       super(props)
       this.state={
-        date:"",
-        name:""
+        date:'2012-05-11',
+        name:"",
+        value: localStorage.getItem("date")
       }
     }
+    componentWillMount(){
+      localStorage.setItem("date",this.state.date);
+      console.log(this.state.date+"hfjfbjn")
+    }
+
+
     handleSubmit=(event)=>{
       event.preventDefault()
+      localStorage.setItem("date",this.state.date);
+      console.log("clicked")
+      console.log(localStorage.getItem("date"))
+      this.setState({value: localStorage.getItem("date") })
     }
     handleInputChange=(event)=>{
-      event.preventDefault()
+      event.preventDefault();
       this.setState({
 
         [event.target.name]: event.target.value
+
       })
     }
+
   render(){
-    const {date,name}=this.state
+    const {date,name,value}=this.state;
+    console.log(date);
+    console.log(value);
+
+
     return(
       <div>
         <br/> <br/> <br/> <br/> <br/>
-      {date.toString()}
 
 
-      <h3 className='bold underlined' align= "center">j</h3>
+
+      <h3 className='bold underlined' align= "center">Table-Data</h3>
 
       <section id="content" style={{marginBottom: '0px'}}>
 
@@ -236,9 +259,9 @@ export default class Schedule extends Component {
                                   <td>1</td>
                                   <td>BCG</td>
                                   <td>TB &amp; bladder cancer</td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
+
+                                  <td>{ LocalDate.parse(value).plusDays(0).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(3).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                 </tr>
@@ -246,9 +269,9 @@ export default class Schedule extends Component {
                                   <td>2</td>
                                   <td>HepB</td>
                                   <td>Hepatitis B</td>
-                                  <td>dob.plusDays(0).toString("dd/MM/yyyy")%></td>
-                                  <td>dob.plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td>(dob.plusWeeks(4)).plusWeeks(8).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusDays(0).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(8).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                 </tr>
@@ -256,9 +279,9 @@ export default class Schedule extends Component {
                                   <td>3</td>
                                   <td>Poliovirus</td>
                                   <td>Polio</td>
-                                  <td> dob.plusDays(0).toString("dd/MM/yyyy")%></td>
-                                  <td> dob.plusDays(0).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusDays(0).plusWeeks(4)).plusWeeks(4).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusDays(0).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                 </tr>
@@ -266,39 +289,39 @@ export default class Schedule extends Component {
                                   <td>4</td>
                                   <td>DTP</td>
                                   <td>Diphtheria, Tetanus &amp; Pertussis</td>
-                                  <td> dob.plusWeeks(6).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).plusMonths(6).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).plusMonths(6).plusYears(3).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusMonths(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusYears(3).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                 </tr>
                                 <tr>
                                   <td>5</td>
                                   <td>Hib</td>
                                   <td>Infections caused by Bacteria</td>
-                                  <td> dob.plusWeeks(6).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).plusMonths(6).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusMonths(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                 </tr>
                                 <tr>
                                   <td>6</td>
                                   <td>PCV</td>
                                   <td>Pneumonia</td>
-                                  <td> dob.plusWeeks(6).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).plusMonths(6).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusMonths(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                 </tr>
                                 <tr>
                                   <td>7</td>
                                   <td>RV</td>
                                   <td>Severe Diarrheal Disease</td>
-                                  <td> dob.plusWeeks(6).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusWeeks(6)).plusWeeks(4).plusWeeks(4).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusWeeks(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                 </tr>
@@ -306,9 +329,9 @@ export default class Schedule extends Component {
                                   <td>8</td>
                                   <td>Typhoid</td>
                                   <td>Typhoid Fever, Diarrhea</td>
-                                  <td> dob.plusMonths(9).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusMonths(9)).plusMonths(15).toString("dd/MM/yyyy")%></td>
-                                  <td></td>
+                                  <td>{ LocalDate.parse(value).plusMonths(9).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusMonths(15).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(3).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                 </tr>
@@ -316,8 +339,8 @@ export default class Schedule extends Component {
                                   <td>9</td>
                                   <td>MMR</td>
                                   <td>Measles, Mumps &amp; Rubella</td>
-                                  <td> dob.plusMonths(9).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusMonths(9)).plusMonths(6).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusMonths(9).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusMonths(6).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
@@ -326,8 +349,8 @@ export default class Schedule extends Component {
                                   <td>10</td>
                                   <td>Varicella</td>
                                   <td>Chickenpox</td>
-                                  <td> dob.plusMonths(12).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusMonths(12)).plusMonths(3).toString("dd/MM/yyyy")%></td>
+                                  <td>{ LocalDate.parse(value).plusYears(1).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>{ LocalDate.parse(value).plusMonths(3).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
@@ -336,8 +359,8 @@ export default class Schedule extends Component {
                                   <td>11</td>
                                   <td>HepA</td>
                                   <td>Liver disease</td>
-                                  <td> dob.plusMonths(12).toString("dd/MM/yyyy")%></td>
-                                  <td> (dob.plusMonths(12)).plusMonths(6).toString("dd/MM/yyyy")%></td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(4).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td> >{ LocalDate.parse(value).plusMonths(18).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
@@ -345,10 +368,9 @@ export default class Schedule extends Component {
                                 <tr>
                                   <td>12</td>
                                   <td>Tdap</td>
-                                  <td>Diphtheria, Tetanus &amp; Pertussis</td>
-                                  <td> dob.plusYears(7).toString("dd/MM/yyyy")%></td>
                                   <td></td>
                                   <td></td>
+                                  <td>{ LocalDate.parse(value).plusYears(7).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                   <td></td>
                                   <td></td>
                                 </tr>
@@ -356,11 +378,11 @@ export default class Schedule extends Component {
                                   <td>13</td>
                                   <td>HPV</td>
                                   <td>Some Cancers &amp; Warts</td>
-                                  <td> dob.plusYears(9).toString("dd/MM/yyyy")%></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(9).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(12).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(3).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(1).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
+                                  <td>>{ LocalDate.parse(value).plusMonths(5).format(DateTimeFormatter.ofPattern('d MM yyyy'))}</td>
                                 </tr>
                               </tbody>
 
@@ -434,7 +456,7 @@ export default class Schedule extends Component {
                       DATE:
                       <input   type="text" id="thullu" name="date" onChange={this.handleInputChange}  value={date}/>
                       <span id="msg" style={{display:'none',color:'red',fontSize:'13px'}}><br/></span>
-                      <button type="Submit" name="submit"/>
+                      <button type="Submit" name="submit" onClick="this.handleSubmit()">boutton</button>
 
                     </form>
 
