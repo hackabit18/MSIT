@@ -99,7 +99,7 @@ class Homepage extends Component {
     												</span>
     											</span>
     										</span>
-    											<p className="mb-none pb-none">Live Doc Talk</p>
+    											<p className="mb-none pb-none"><Link to="/DoctorChat">Live Doc Talk</Link></p>
     									</a></li>
     									<li><a href="#tabsNavigationSimpleIcons4"
     										data-toggle="tab"> <span

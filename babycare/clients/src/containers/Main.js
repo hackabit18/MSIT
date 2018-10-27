@@ -10,6 +10,7 @@ import FaqMain from "../components/FaqMain";
 import Map from "../components/Map";
 import Articles from "../components/Articles";
 import FactMain from "../components/FactMain";
+import DoctorChat from "../components/DoctorChat";
 import ContactMain from "../components/ContactMain";
 import Schedule from "../components/Schedule";
 import "./App.css";
@@ -60,6 +61,7 @@ const Main = props => {
           <Route exact path='/ContactMain' component={ContactMain}/>
           <Route exact path='/Map' component={Map}/>
           <Route exact path='/Articles' component={Articles}/>
+          <Route exact path='/DoctorChat' component={DoctorChat}/>
 
 
           <Route exact path='/FaqMain' component={FaqMain}/>
