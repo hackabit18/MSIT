@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 
 import '../css/App.css';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          
+        <div>
+        <div className="App">
+          <p>hello </p>
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+          <Link to="/Map" >Map</Link>
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        </div>
+
+
+
+
+
+        </div>
+
     );
   }
 }
+
 
 export default App;
