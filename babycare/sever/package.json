@@ -17,7 +17,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "js-joda": "^1.9.2",
-    "jsonwebtoken": "^8.2.0",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.0.10"
   }
 }
